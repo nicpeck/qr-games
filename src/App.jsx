@@ -1,4 +1,4 @@
-import Spyfall from "./Containers/Spyfall";
+import Spyfall from "./Components/Spyfall/SpyfallRoutes";
 
 function App() {
   // routing in App
