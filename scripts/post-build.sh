@@ -1,0 +1,1 @@
+echo '/* /index.html  200' | cat >./build/_redirects
