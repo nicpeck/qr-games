@@ -1,5 +1,5 @@
 import QRCode from "react-qr-code";
-import { Container, Square, Heading, Center } from '@chakra-ui/react';
+import { Container, Square, Center } from '@chakra-ui/react';
 
 const SharePage = () => {
     return (

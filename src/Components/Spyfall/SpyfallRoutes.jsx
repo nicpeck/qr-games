@@ -1,5 +1,3 @@
-import { ChakraProvider, theme } from '@chakra-ui/react';
-
 import Routes from '../Routes';
 
 import Container from './SpyfallContainer';

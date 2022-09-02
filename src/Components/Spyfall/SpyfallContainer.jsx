@@ -1,6 +1,5 @@
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import { Outlet } from "react-router-dom";
-import { mode } from "@chakra-ui/theme-tools";
 
 const theme = extendTheme({
   styles: {
