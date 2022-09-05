@@ -1,21 +1,34 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import _ from 'lodash';
 import { Container, Box, Heading, Textarea, Button } from '@chakra-ui/react';
 
 import { cleanString } from '../../lib/utils';
+import { SPYFALL_LOCATIONS, toUrl } from '../../lib/spyfall';
 
 const SpyfallStartPage = () => {
     const [inputText, setInputText] = useState('');
     const [names, setNames] = useState([]);
 
+    const navigate = useNavigate();
+
     useEffect(() => {
-        setNames(
+        setNames(_.uniq(
             inputText
             .trim()
             .split(/[\n,]+/g)
             .map(name => name.replace(/\s+/g, ''))
             .filter(name => name.length > '')
-        );
+        ));
     }, [inputText]);
+
+    const createGameConfig = () => {
+        const shuffledNames = _.shuffle(names).join('.');
+        const location = _.chain(SPYFALL_LOCATIONS).keys().sample().value();
+
+        const urlConfig = toUrl(`${shuffledNames}.${location}`);
+        navigate(`/share/${urlConfig}`);
+    }
 
     return (
         <Container
@@ -35,7 +48,7 @@ const SpyfallStartPage = () => {
                     placeholder="Enter names 1 per line"
                 />
                 {names.length > 0
-                    ? <Button colorScheme="orange">Start with {names.length} player{names.length === 1 ? '' : 's'}</Button>
+                    ? <Button colorScheme="orange" onClick={createGameConfig}>Start with {names.length} player{names.length === 1 ? '' : 's'}</Button>
                     : <Button colorScheme="orange" disabled>Start</Button>
                 }
             </Box>
