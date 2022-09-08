@@ -2,13 +2,13 @@ import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import { Outlet } from "react-router-dom";
 
 const theme = extendTheme({
-  styles: {
-    global: (props) => ({
-      body: {
-        bg: 'gray.200'
-      }
-    }),
-  },
+  // styles: {
+  //   global: (props) => ({
+  //     body: {
+  //       bg: 'gray.200'
+  //     }
+  //   }),
+  // },
   fonts: {
     heading: `'Courier Prime', monospace`,
     body: `'Courier Prime', monospace`,

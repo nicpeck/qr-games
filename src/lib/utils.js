@@ -8,7 +8,7 @@ export const cleanString = (input, form = "NFKC", strip = '[\\u0300-\\u036f]') =
 
 export const baseConvert = (input, inAlph, outAlph) => {
     //console.log("baseConvert: ", input, inAlph, outAlph);
-    if (input === null || input == "" || inAlph == "" || outAlph == "") {
+    if (input === null || input === "" || inAlph === "" || outAlph === "") {
         return null;
     }
 
@@ -16,7 +16,7 @@ export const baseConvert = (input, inAlph, outAlph) => {
     const toBase = outAlph.length;
     const inAlphChars = inAlph.split('');
     // TODO support Base 1 decoding.  
-    if (toBase == 1) return;
+    if (toBase === 1) return;
     const add = (x, y, base) => {
         let z = [];
         const n = Math.max(x.length, y.length);
@@ -57,9 +57,9 @@ export const baseConvert = (input, inAlph, outAlph) => {
             }
             const n = inAlph.indexOf(digits[i])
             // Continue even if character is not found (possibly a padding character.)
-            // if (n == -1) continue;
+            // if (n === -1) continue;
             // Alternatively, fail on bad character
-            if (n == -1) return null;
+            if (n === -1) return null;
             arr.push(n);
         }
         return arr;
